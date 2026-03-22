@@ -1,0 +1,35 @@
+<nav aria-label="Page navigation example" class="mb-3">
+  <ul class="pagination">
+
+    {% if iphones.has_prev %}
+      <li class="page-item">
+        <a class="page-link" href="{{url_for('core.index', page=iphones.prev_num)}}">Previous</a>
+      </li>
+    {% endif %}
+
+    {% for number in iphones.iter_pages() %}
+      {% if number %}
+        {% if iphones.page != number %}
+          <li class="page-item">
+            <a class="page-link" href="{{url_for('core.index', page=number)}}">{{number}}</a>
+          </li>
+        {% else %}
+          <li class="page-item active">
+            <span class="page-link">{{number}}</span>
+          </li>
+        {% endif %}
+      {% else %}
+        <li class="page-item disabled">
+          <span class="page-link">...</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if iphones.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="{{url_for('core.index', page=iphones.next_num)}}">Next</a>
+      </li>
+    {% endif %}
+
+  </ul>
+</nav>

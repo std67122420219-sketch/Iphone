@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>{{title}}</h1>
+    <hr>
+    <div class="card mt-3 mb-3">
+        <div class="card-header">
+            <h2>Edit Iphone Form</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">Iphone Name</label>
+                    <input name="name" type="text" class="form-control" value="{{ iphone.name }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Model</label>
+                    <input name="model" type="text" class="form-control" value="{{ iphone.model }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+                    <input name="price" type="text" class="form-control" value="{{ iphone.price }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="description" class="form-control">{{ iphone.description }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Image URL</label>
+                    <input name="img_url" type="text" class="form-control" value="{{ iphone.img_url }}" required>
+                </div>
+
+                <hr>
+                <button type="submit" class="btn btn-warning">
+                    Update Iphone
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
